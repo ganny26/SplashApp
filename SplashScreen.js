@@ -1,9 +1,16 @@
 import React from 'react';
 import { StyleSheet, Text, View,Button,Alert } from 'react-native';
+import {NavigationActions} from 'react-navigation';
 
 export default class SplashScreen extends React.Component {
 
- 
+  componentDidMount(){
+   
+  }
+  componentDidUpdate(){
+
+  }
+
   render() {
     return (
       <View style={styles.wrapper}>
