@@ -1,5 +1,19 @@
 {
   "expo": {
-    "sdkVersion": "23.0.0"
+
+    "name": "Splash",
+    "sdkVersion": "23.0.0",
+    "description": "React Native Splash App",
+    "version": "1.0.0",
+    "privacy": "public",
+    "orientation": "portrait",
+    "primaryColor": "#cccccc",
+    "icon": "./images/NavLogo.png",
+    "splash": {
+      "image": "./images/NavLogo.png"
+    },
+    "ios": {
+      "supportsTablet": false
+    }
   }
 }
