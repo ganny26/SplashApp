@@ -14,18 +14,18 @@ const loginBannerImage = "https://png.pngtree.com/thumb_back/fw800/back_pic/04/4
 import { SocialIcon, Button } from 'react-native-elements';
 const resizeMode = 'center';
 export default class LoginScreen extends React.Component {
-    static navigationOptions= ({navigation}) =>({
-        title: 'Login',	
-  });  
+    static navigationOptions = ({ navigation }) => ({
+        title: 'Login',
+    });
 
-    constructor(props){
+    constructor(props) {
         super(props);
-     console.log('Navigation',this.props.navigation)
+        console.log('Navigation', this.props.navigation)
     }
 
-    
+
     render() {
-    
+
         return (
             <ImageBackground
                 style={{
@@ -38,6 +38,11 @@ export default class LoginScreen extends React.Component {
                 source={{ uri: loginBannerImage }}
             >
                 <View style={styles.MainContainer}>
+                    <View style={styles.container}>
+                        <Image style={styles.logoSize}
+                            source={require('./images/NavLogo.png')} />
+                        <Text style={styles.logoText}>Splash app transfer anything!</Text>
+                    </View>
                     <View style={styles.buttonSpace}>
                         <Button
                             backgroundColor="#8E518D"
@@ -51,10 +56,13 @@ export default class LoginScreen extends React.Component {
                             icon={{ name: 'facebook', type: 'font-awesome' }}
                             style={styles.buttonSpace}
                             borderRadius={20}
-                            onPress={()=>navigate('Splash')}
+                            onPress={() => navigate('Splash')}
                             title='Sign In With Facebook'></Button></View>
                     <View style={styles.termsSpace}>
-                        <Text style={styles.termsContent}>By Signing in,I agree to Wa2cook's Terms of Service and Privacy Policy</Text>
+                        <Text style={styles.termsContent}>By Signing in, I agree to Terms of Service and Privacy Policy</Text>
+                    </View>
+                    <View style={styles.signupTextCont}>
+                        <Text style={styles.signupText}>Powered by React Native</Text>
                     </View>
                 </View>
             </ImageBackground>
@@ -68,7 +76,7 @@ const styles = StyleSheet.create({
     MainContainer: {
         flex: 1,
         justifyContent: 'center',
-        backgroundColor: 'transparent',
+        backgroundColor: 'transparent'
     },
     SigninButton: {
         marginTop: 10,
@@ -113,8 +121,34 @@ const styles = StyleSheet.create({
         marginTop: 20
     },
     termsContent: {
+        marginTop: 20,
         textAlign: 'center',
         color: 'white',
         fontSize: 14
+    },
+    signupTextCont: {
+        flex: 1,
+        alignItems: 'flex-end',
+        justifyContent: 'center',
+        paddingVertical: 16,
+        flexDirection: 'row'
+    },
+    signupText: {
+        color: 'white',
+        fontSize: 16
+    },
+    container: {
+        flexGrow: 1,
+        justifyContent: 'flex-end',
+        alignItems: 'center'
+    },
+    logoText: {
+        marginVertical: 15,
+        fontSize: 18,
+        color: 'white'
+    },
+    logoSize: {
+        width: 100,
+        height: 100
     }
 });
