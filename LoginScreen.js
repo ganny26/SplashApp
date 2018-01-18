@@ -14,10 +14,7 @@ const loginBannerImage = "https://png.pngtree.com/thumb_back/fw800/back_pic/04/4
 import { SocialIcon, Button } from 'react-native-elements';
 const resizeMode = 'center';
 export default class LoginScreen extends React.Component {
-    static navigationOptions = ({ navigation }) => ({
-        title: 'Login',
-    });
-
+  
     constructor(props) {
         super(props);
         console.log('Navigation', this.props.navigation)
@@ -25,7 +22,7 @@ export default class LoginScreen extends React.Component {
 
 
     render() {
-
+        const { navigate } = this.props.navigation;
         return (
             <ImageBackground
                 style={{
@@ -40,7 +37,7 @@ export default class LoginScreen extends React.Component {
                 <View style={styles.MainContainer}>
                     <View style={styles.container}>
                         <Image style={styles.logoSize}
-                            source={require('./images/NavLogo.png')} />
+                            source={require('./images/logohq.png')} />
                         <Text style={styles.logoText}>Splash app transfer anything!</Text>
                     </View>
                     <View style={styles.buttonSpace}>
@@ -49,6 +46,7 @@ export default class LoginScreen extends React.Component {
                             style={styles.buttonSpace}
                             icon={{ name: 'google', type: 'font-awesome' }}
                             borderRadius={20}
+                            onPress={() => navigate('First')}
                             title='Sign In With Google'></Button></View>
                     <View style={styles.buttonSpace}>
                         <Button
@@ -56,7 +54,7 @@ export default class LoginScreen extends React.Component {
                             icon={{ name: 'facebook', type: 'font-awesome' }}
                             style={styles.buttonSpace}
                             borderRadius={20}
-                            onPress={() => navigate('Splash')}
+                            onPress={() => navigate('First')}
                             title='Sign In With Facebook'></Button></View>
                     <View style={styles.termsSpace}>
                         <Text style={styles.termsContent}>By Signing in, I agree to Terms of Service and Privacy Policy</Text>

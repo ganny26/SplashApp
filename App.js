@@ -2,32 +2,40 @@ import React from 'react';
 import { StyleSheet, Text, View, Button, Alert } from 'react-native';
 import SplashScreen from './SplashScreen';
 import LoginScreen from './LoginScreen';
+import DayItem from './components/DayItem';
+
+import FirstScreen from './components/FirstScreen';
+import SecondScreen from './components/SecondScreen';
+import MainScreen from './components/MainScreen';
+import { StackNavigator } from 'react-navigation';
 
 
-export default class App extends React.Component {
+const AppNavigator = StackNavigator(
 
+  {
+    First: {
+      name: 'First Screen',
+      description: 'First Screen',
+      screen: FirstScreen,
+    },
+    Second: {
+      name: 'Second Screen',
+      description: 'Second Screen',
+      screen: SecondScreen,
+    },
 
-  onPressLearnMore() {
-    console.log("Learn More");
-    Alert.alert('Learn more', 'Visit https://www.splashapp.co to learn more information'), [
-      { text: 'Ask me later', onPress: () => console.log('Ask me later pressed') },
-      { text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
-      { text: 'OK', onPress: () => console.log('OK Pressed') },
-    ],
-      { cancelable: false }
-  }
-  render() {
-    return (
-      <LoginScreen />
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    LoginScreen: {
+      name: 'Login',
+      description: 'Login',
+      screen: LoginScreen,
+    }
   },
-});
+  {
+    initialRouteName: 'LoginScreen',
+    headerMode: 'none'
+  }
+);
+
+
+export default AppNavigator;
+
